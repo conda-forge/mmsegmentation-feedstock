@@ -1,5 +1,5 @@
 {% set name = "mmsegmentation" %}
-{% set version = "1.0.0" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mmsegmentation-{{ version }}.tar.gz
-  sha256: 5fc1dd0daa70b387924e211c34e918ad423edcaa38459713eddda1e0e2a6714d
+  sha256: 0e0c73e85e6160e6175c8f8091e147d602066ae1500edb16f739ca854a81c8dc
 
 build:
   noarch: python
