@@ -22,7 +22,6 @@ requirements:
     - matplotlib-base
     - mmcv
     - numpy
-    - py-opencv
     - packaging
     - prettytable
     - python >=3.7
