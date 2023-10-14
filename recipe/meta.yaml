@@ -1,5 +1,5 @@
 {% set name = "mmsegmentation" %}
-{% set version = "1.1.2" %}
+{% set version = "1.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mmsegmentation-{{ version }}.tar.gz
-  sha256: dd0cd7567acde1d53478d477a73a55ec968609aa0ca1561c13afe087142e59d8
+  sha256: 35338c089e0342a4c80d446763bd8cd31641e9c430de495611c966a2131fd489
 
 build:
   noarch: python
@@ -22,9 +22,9 @@ requirements:
     - matplotlib-base
     - mmcv
     - numpy
-    - py-opencv
     - packaging
     - prettytable
+    - py-opencv
     - python >=3.7
     - scipy
 
