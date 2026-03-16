@@ -6,36 +6,43 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/mmsegmentation-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/mmsegmentation-{{ version }}.tar.gz
   sha256: 35dbd8089fd1c2baa467d3b7c2e1b197043f4f955ad5de8005170eee469102ec
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
+    - setuptools
   run:
     - matplotlib-base
-    - mmcv
+    - mmcv <2.2.0  # https://github.com/open-mmlab/mmsegmentation/issues/3729
     - numpy
     - packaging
     - prettytable
     - py-opencv
-    - python >=3.7
+    - python >={{ python_min }}
     - scipy
 
 test:
   imports:
     - mmseg
+  source_files:
+    - tests
   commands:
-    - pip check
+    # - pip check  # disabled because mmengine on conda-forge is mmengine-lite
+    - python -m pytest ./tests/
     - python -c "import mmseg; print(mmseg.__version__)"
   requires:
+    - ftfy
     - pip
+    - pytest
+    - python {{ python_min }}
 
 about:
   home: http://github.com/open-mmlab/mmsegmentation
